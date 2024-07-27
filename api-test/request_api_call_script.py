@@ -40,7 +40,6 @@ def call_api(json_data, url, n):
         valid_times = [t for t in response_times if t is not None]
         if valid_times:
             print(f"평균 응답 시간: {statistics.mean(valid_times):.4f} seconds")
-            print(f"중앙값 응답 시간: {statistics.median(valid_times):.4f} seconds")
             print(f"최대 응답 시간: {max(valid_times):.4f} seconds")
             print(f"최소 응답 시간: {min(valid_times):.4f} seconds")
         else:
