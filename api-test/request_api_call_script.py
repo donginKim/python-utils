@@ -18,6 +18,9 @@ def call_api(json_data, url, n):
     # api 호출 시간을 저장할 리스트 초기화
     response_times = []
 
+    # 전체 시작 시간 기록
+    total_start_time = time.time()
+
     # n번 만큼 api 반복 호출
     for i in range(n):
         # 시작 시간 기록
@@ -33,6 +36,10 @@ def call_api(json_data, url, n):
         except Exception as e:
             print(f"이슈 : {e}")
 
+    # 전체 끝난 시간 기록
+    total_end_time = time.time()
+    total_elapsed_time = total_end_time - total_start_time
+
     # 결과 출력
     print("\n성능결과:")
     print(f"총 요청 수: {n}")
@@ -46,6 +53,8 @@ def call_api(json_data, url, n):
             print("유효한 응답 시간이 없음")
     else:
         print("응답 시간이 없음.")
+
+    print(f"\n총 걸린 시간: {total_elapsed_time:.4f} seconds")
 
 # 메인 함수
 def main(json_path, api_url, n):
